@@ -1,2 +1,15 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<section class="container-fluid">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+		<%= image_tag("thinker.png", alt: "Thinker ESPOL", class: "img-responsive center-block imgpad") %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-4">
+			<%= link_to "Log in", '#', class: "btn btn-lg btn-primary center-block" %>
+		</div>
+		<div class="col-md-2">
+			<%= link_to "Sign up", '#', class: "btn btn-lg btn-primary center-block" %>
+		</div>
+	</div>
+</section>
