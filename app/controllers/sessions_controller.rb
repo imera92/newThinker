@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		log_in teacher
   		redirect_to list_path
   	else
-  		flash.now[:danger] = 'Combinacion incorrecta de correo/contrasena'
+  		flash[:danger] = 'Combinacion incorrecta de correo/contrasena'
   		render 'new'
   	end 
   end
