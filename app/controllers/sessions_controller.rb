@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   	teacher = Teacher.find_by(email: params[:session][:email].downcase)
   	if teacher && teacher.authenticate(params[:session][:password])
   		log_in teacher
-  		redirect_to list_path
+  		redirect_to quizzes_path
   	else
   		flash[:danger] = 'Combinacion incorrecta de correo/contrasena'
   		render 'new'

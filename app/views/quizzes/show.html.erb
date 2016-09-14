@@ -10,5 +10,10 @@
   <%= @quiz.description %>
 </p>
 
+<p>
+  <strong>User:</strong>
+  <%= @quiz.user %>
+</p>
+
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
