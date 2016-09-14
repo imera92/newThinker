@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :quizzes
   root 'static_pages#home'
   get	 '/signup',    to: 'teachers#new'
   get	 '/login',	   to: 'sessions#new'
