@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroys]
+  before_action :require_login, only: [:show, :edit, :update, :destroys]
 
   # GET /teachers
   # GET /teachers.json
