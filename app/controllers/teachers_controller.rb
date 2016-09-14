@@ -67,4 +67,7 @@ class TeachersController < ApplicationController
     def teacher_params
       params.require(:teacher).permit(:email, :password)
     end
+
+    def login
+    end
 end
