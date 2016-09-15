@@ -4,7 +4,8 @@ class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.json
   def index
-    @quizzes = Quiz.all
+    # @quizzes = Quiz.all
+    @quizzes = current_teacher.quizzes
   end
 
   # GET /quizzes/1
@@ -14,7 +15,7 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/new
   def new
-    @quiz = Quiz.new
+    @quiz = current_teacher.quizzes.build if logged_in?
   end
 
   # GET /quizzes/1/edit
@@ -24,16 +25,14 @@ class QuizzesController < ApplicationController
   # POST /quizzes
   # POST /quizzes.json
   def create
-    @quiz = Quiz.new(quiz_params)
+    # @quiz = Quiz.new(quiz_params)
+    @quiz = current_teacher.quizzes.build(quiz_params)
 
-    respond_to do |format|
-      if @quiz.save
-        format.html { redirect_to @quiz, notice: 'Quiz was successfully created.' }
-        format.json { render :show, status: :created, location: @quiz }
-      else
-        format.html { render :new }
-        format.json { render json: @quiz.errors, status: :unprocessable_entity }
-      end
+    if @quiz.save
+      flash[:success] = "Quiz creado!"
+      redirect_to quizzes_path
+    else
+      render 'new'
     end
   end
 

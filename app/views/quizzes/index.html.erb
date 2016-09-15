@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %> fade in"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times</a><%= message %></div>
+<% end %>
 
 <h1>Quizzes</h1>
 
@@ -7,7 +10,6 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th>Teacher</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +19,6 @@
       <tr>
         <td><%= quiz.name %></td>
         <td><%= quiz.description %></td>
-        <td><%= quiz.teacher %></td>
         <td><%= link_to 'Show', quiz %></td>
         <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
         <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
